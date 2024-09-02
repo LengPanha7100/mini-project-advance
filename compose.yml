@@ -1,0 +1,19 @@
+services:
+  spring-mini-project:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: spring_mini_project_db
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5441:5432"
+    volumes:
+      - spring-mini-project-data:/var/lib/postgresql/data
+    networks:
+      - spring-mini-project-network
+
+volumes:
+  spring-mini-project-data:
+networks:
+  spring-mini-project-network:
